@@ -9,8 +9,9 @@ const LogIn = () => {
             <div className="hero min-h-screen bg-slate-200 rounded-lg">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center lg:text-left w-1/3">
-                        <h1 className="text-5xl font-bold">Login now!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                        {/* <h1 className="text-5xl font-bold">Welcome! <br /> Please Login to continue.</h1> */}
+                        <img className=' h-[60vh]' src="https://i.ibb.co/0ZF8dQg/undraw-Login-re-4vu2.png" alt="" />
+                        
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm md:max-w-xl shadow-2xl bg-base-100">
                         <div className='text-center p-3'>
@@ -36,10 +37,10 @@ const LogIn = () => {
                             <div className="form-control mt-6">
                                 <button className="btn bg-blue-700 text-white">Login</button>
                             </div>
-                            <p class="mt-4 block text-center font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
+                            <p className="mt-4 block text-center font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
                                 Don’t have an account yet? please
                                 <Link to={"/register"}
-                                    class="font-medium text-pink-500 transition-colors hover:text-blue-700"
+                                    className="font-medium text-pink-500 transition-colors hover:text-blue-700"
 
                                 >
                                     Register

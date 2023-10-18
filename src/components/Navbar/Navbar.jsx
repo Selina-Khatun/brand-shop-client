@@ -2,14 +2,14 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
-const navLink=<>
-<li><NavLink className='mr-4' to={"/"}>Home</NavLink></li>
-<li><NavLink className='mr-4' to={"/addProduct"}>Add Product</NavLink></li>
-<li><NavLink className='mr-4' to={"/myCart"}>My Cart</NavLink></li>
-<li><NavLink className='mr-4' to={"/register"}>Register</NavLink></li>
-<li></li>
+    const navLink = <>
+        <li><NavLink className='mr-4' to={"/"}>Home</NavLink></li>
+        <li><NavLink className='mr-4' to={"/addProduct"}>Add Product</NavLink></li>
+        <li><NavLink className='mr-4' to={"/myCart"}>My Cart</NavLink></li>
+        <li><NavLink className='mr-4' to={"/register"}>Register</NavLink></li>
+        <li></li>
 
-</>
+    </>
 
     return (
         <div>
@@ -23,7 +23,10 @@ const navLink=<>
                             {navLink}
                         </ul>
                     </div>
-                    <a className=" normal-case text-xl">daisyUI</a>
+                    <div className='flex justify-center items-center'>
+                        <img className='w-[30%]' src="https://i.ibb.co/j8Q78Hf/undraw-Shopping-Bags-sbj5.png" alt="" />
+                        <h1 className=' text-rose-500'>Cosmetics and Beauty</h1>
+                    </div>
                 </div>
                 <div className="navbar-center hidden  lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -31,7 +34,7 @@ const navLink=<>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                <NavLink className='mr-4' to={"/login"}><button className=' btn btn-outline'>Login</button></NavLink>
+                    <NavLink className='mr-4' to={"/login"}><button className=' btn btn-outline'>Login</button></NavLink>
                 </div>
             </div>
         </div>
