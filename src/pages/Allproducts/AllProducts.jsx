@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Brands from '../../components/Brands/Brands';
+import Footer from '../../components/Footer/Footer';
 
 const AllProducts = () => {
     const products = useLoaderData();
@@ -12,6 +13,7 @@ const AllProducts = () => {
                     products?.map(product => <Brands key={product._id} product={product}> </Brands>)
                 }
             </div>
+            <Footer></Footer>
         </div>
     );
 };

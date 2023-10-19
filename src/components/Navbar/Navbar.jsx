@@ -3,11 +3,11 @@ import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const navLink = <>
-        <li><NavLink className='mr-4' to={"/"}>Home</NavLink></li>
-        <li><NavLink className='mr-4' to={"/addProduct"}>Add Product</NavLink></li>
-        <li><NavLink className='mr-4' to={"/myCart"}>My Cart</NavLink></li>
-        <li><NavLink className='mr-4' to={"/allProducts"}>All products</NavLink></li>
-        <li><NavLink className='mr-4' to={"/register"}>Register</NavLink></li>
+        <li><NavLink className='mr-4 font-bold' to={"/"}>Home</NavLink></li>
+        <li><NavLink className='mr-4 font-bold' to={"/addProduct"}>Add Product</NavLink></li>
+        <li><NavLink className='mr-4 font-bold' to={"/myCart"}>My Cart</NavLink></li>
+        <li><NavLink className='mr-4 font-bold' to={"/allProducts"}>All products</NavLink></li>
+        <li><NavLink className='mr-4 font-bold' to={"/register"}>Register</NavLink></li>
         
         
 
@@ -36,7 +36,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <NavLink className='mr-4' to={"/login"}><button className=' btn btn-outline'>Login</button></NavLink>
+                    <NavLink className='mr-4 font-bold' to={"/login"}><button className=' btn btn-outline'>Login</button></NavLink>
                 </div>
             </div>
         </div>

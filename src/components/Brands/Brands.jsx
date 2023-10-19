@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Brands = ({ product }) => {
-    const { name, photo, brand, price, category, ratings, description } = product;
+    const {_id, name, photo, brand, price, category, ratings, description } = product;
     return (
         <div className='my-10'>
 
@@ -20,7 +21,8 @@ const Brands = ({ product }) => {
                         <input type="radio" name="rating-10" className="mask mask-star-2 bg-orange-400" />
                     </div>
                     <div className="card-actions justify-end">
-                        <button className="btn">Details</button>
+                    
+                        <Link to={`/loreal/${_id}`}> <button className="btn btn-outline btn-error">Details</button></Link>
 
                     </div>
                 </div>

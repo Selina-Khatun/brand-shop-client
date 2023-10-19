@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData, useLocation, useParams } from 'react-router-dom';
+import { Link, useLoaderData, useLocation, useParams } from 'react-router-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import './products.css';
@@ -80,7 +80,7 @@ const Products = () => {
                                 </div>
                                 <div className="flex items-center justify-between">
                                     <span className="text-3xl font-bold text-gray-900 dark:text-white">Price: {product.price} $</span>
-                                    <button className='btn btn-outline btn-warning' >Details</button>
+                                    <Link to={`/loreal/${product._id}`}> <button className="btn btn-outline btn-error">Details</button></Link>
                                     <button className='btn btn-error  btn-outline' >Update</button>
                                 </div>
                             </div>
