@@ -1,0 +1,14 @@
+.main-slider{
+padding-top: 30px;
+
+}
+.carousel.slider-warper{
+
+width: 50%; 
+}
+.object-cover {
+    object-fit: cover;
+}
+.carousel{
+    /* text-align: center; */
+}

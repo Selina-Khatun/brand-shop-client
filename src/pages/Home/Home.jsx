@@ -5,12 +5,13 @@ import Banner from '../../components/Banner/Banner';
 import Brands from '../../components/Brands/Brands';
 import { useLoaderData } from 'react-router-dom';
 import AllBrands from '../../components/AllBrands/AllBrands';
+import Favorites from '../../components/Favorites/Favorites';
 
 const Home = () => {
     const products = useLoaderData();
+    const displayedProducts = products.slice(0, 4); 
     return (
         <div>
-            <h1>data length {products.length}</h1>
             <Banner></Banner>
            <AllBrands></AllBrands>
            
@@ -18,9 +19,10 @@ const Home = () => {
            
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
                 {
-                    products?.map(product => <Brands key={product._id} product={product}> </Brands>)
+                    displayedProducts?.map(product => <Brands key={product._id} product={product}> </Brands>)
                 }
             </div>
+            <Favorites></Favorites>
 
             <Footer></Footer>
         </div>

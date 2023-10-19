@@ -6,8 +6,10 @@ const Navbar = () => {
         <li><NavLink className='mr-4' to={"/"}>Home</NavLink></li>
         <li><NavLink className='mr-4' to={"/addProduct"}>Add Product</NavLink></li>
         <li><NavLink className='mr-4' to={"/myCart"}>My Cart</NavLink></li>
+        <li><NavLink className='mr-4' to={"/allProducts"}>All products</NavLink></li>
         <li><NavLink className='mr-4' to={"/register"}>Register</NavLink></li>
-        <li></li>
+        
+        
 
     </>
 
@@ -25,7 +27,7 @@ const Navbar = () => {
                     </div>
                     <div className='flex justify-center items-center'>
                         <img className='w-[30%]' src="https://i.ibb.co/j8Q78Hf/undraw-Shopping-Bags-sbj5.png" alt="" />
-                        <h1 className=' text-rose-500'>Cosmetics and Beauty</h1>
+                        {/* <h1 className=' text-rose-500'>Cosmetics and Beauty</h1> */}
                     </div>
                 </div>
                 <div className="navbar-center hidden  lg:flex">

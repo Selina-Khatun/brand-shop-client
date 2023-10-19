@@ -13,6 +13,9 @@ import MyCart from './pages/MyCart/MyCart';
 import Register from './pages/Register/Register';
 import LogIn from './pages/LogIn/LogIn';
 import Loreal from './components/Loreal/Loreal';
+import AuthProvider from './Providers/AuthProvider';
+import Products from './components/Products/Products';
+import AllProducts from './pages/Allproducts/AllProducts';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +36,11 @@ const router = createBrowserRouter([
         element: <MyCart></MyCart>
       },
       {
+        path: "/allProducts",
+        element: <AllProducts></AllProducts>,
+        loader: () => fetch('http://localhost:5000/product')
+      },
+      {
         path: "/register",
         element: <Register></Register>
       },
@@ -41,14 +49,23 @@ const router = createBrowserRouter([
         element: <LogIn></LogIn>
       },
       {
-        path: "/loreal",
-        element: <Loreal></Loreal>
+        path: "/products/:brand",
+        element: <Products></Products>,
+        loader: () => fetch('http://localhost:5000/product')
+      },
+      {
+        path: "/loreal/:id",
+        element: <Loreal></Loreal>,
+        loader: () => fetch('http://localhost:5000/product').then((response) => response.json())
       }
     ]
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+
   </React.StrictMode>,
 )
