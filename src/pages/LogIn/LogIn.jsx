@@ -6,20 +6,27 @@ import auth from '../../firebase/firebase.config';
 
 
 const LogIn = () => {
-    const handleLogIn=e=>{
+    const handleLogIn = e => {
 
         e.preventDefault();
+        const form=e.target;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log( email, password);
-        signInWithEmailAndPassword(auth,email,password)
-        .then(result=>{
-            console.log(result.user);
-            alert('Registration successful!');
-        })
-        .catch(error=>{
-            console.error(error);
-        })
+        console.log(email, password);
+        signInWithEmailAndPassword(auth, email, password)
+            .then(result => {
+                console.log(result.user);
+                alert('Registration successful!');
+                form.reset('');
+            })
+            .catch((error) => {
+                console.error(error);
+                const errorCode = error.code;
+                if (errorCode === 'auth/user-not-found' || errorCode === 'auth/wrong-password') {
+                  alert('Invalid email or password. Please try again.');
+                }
+              });
+            
     }
     return (
         <div>
@@ -28,7 +35,7 @@ const LogIn = () => {
                     <div className="text-center lg:text-left w-1/3">
                         {/* <h1 className="text-5xl font-bold">Welcome! <br /> Please Login to continue.</h1> */}
                         <img className=' h-[60vh]' src="https://i.ibb.co/0ZF8dQg/undraw-Login-re-4vu2.png" alt="" />
-                        
+
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm md:max-w-xl shadow-2xl bg-base-100">
                         <div className='text-center p-3'>
