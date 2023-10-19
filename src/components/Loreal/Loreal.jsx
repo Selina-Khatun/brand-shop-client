@@ -34,13 +34,13 @@ const Loreal = () => {
                 <div className="hero-overlay bg-opacity-40"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className=" max-w-xl">
-                        <h1 className="mb-5 text-5xl text-white font-bold">{name}</h1>
+                        <h1 className="mb-5 lg:text-5xl text-white font-bold">{name}</h1>
                         <Link to={"/myCart"}><button className="btn btn-outline btn-error">Add to cart</button></Link>
 
                     </div>
                 </div>
             </div>
-            <section className='flex justify-between py-10'>
+            <section className='flex flex-col lg:flex-row justify-between p-5'>
 
                 <div>
                     <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Price: {price} $</h1>
@@ -56,7 +56,7 @@ const Loreal = () => {
                     <div className=' '>
                         <h6 className="text-lg font-semibold tracking-tight text-rose-500 dark:text-white">Brand Name : {brand}</h6>
                         <h6 className="text-lg  py-4 font-semibold tracking-tight dark:text-white">Type : {category}</h6>
-                        <p className=' bg-slate-100 p-9 my-4 rounded-full'>{description}</p>
+                        <p className=' bg-slate-100 p-9 my-4 lg:rounded-full'>{description}</p>
                     </div>
                 </div>
 

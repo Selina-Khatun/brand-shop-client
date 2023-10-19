@@ -1,9 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import auth from '../../firebase/firebase.config';
 
 
 const LogIn = () => {
+    const handleLogIn=e=>{
+
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        console.log( email, password);
+        signInWithEmailAndPassword(auth,email,password)
+        .then(result=>{
+            console.log(result.user);
+            alert('Registration successful!');
+        })
+        .catch(error=>{
+            console.error(error);
+        })
+    }
     return (
         <div>
             <div className="hero min-h-screen bg-slate-200 rounded-lg">
@@ -19,7 +36,7 @@ const LogIn = () => {
                             <button className='btn bg-slate-50 px-6 rounded-full my-3 normal-case text-base'><FcGoogle></FcGoogle> in with Google</button>
                             <p className=' '>-------------or------------</p>
                         </div>
-                        <form className="card-body">
+                        <form onSubmit={handleLogIn} className="card-body">
                             <div className="form-control">
 
                                 <label className="label">
