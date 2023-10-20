@@ -81,7 +81,7 @@ const Products = () => {
                                 <div className="flex items-center justify-between">
                                     <span className="text-3xl font-bold text-gray-900 dark:text-white">Price: {product.price} $</span>
                                     <Link to={`/loreal/${product._id}`}> <button className="btn btn-outline btn-error">Details</button></Link>
-                                    <button className='btn btn-error  btn-outline' >Update</button>
+                                    <Link to={`/updateProduct/${product._id}`}><button className='btn btn-error  btn-outline' >Update</button></Link>
                                 </div>
                             </div>
                         </div>
