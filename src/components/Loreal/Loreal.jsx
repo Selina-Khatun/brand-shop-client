@@ -21,7 +21,40 @@ const Loreal = () => {
     if (!selectedItem || Object.keys(selectedItem).length === 0) {
         return <div><span className="loading loading-spinner loading-sm"></span></div>;
     }
-    const { _id, name, photo, brand, price, category, ratings, description } = selectedItem;
+    const { name, photo, brand, price, category, ratings, description } = selectedItem;
+    console.log(selectedItem);
+
+    const handleAddToCart = e => {
+        fetch('http://localhost:5000/cartProduct', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(selectedItem),
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json();
+            })
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    swal({
+                        title: "Good job!",
+                        text: "Item added to the cart successfully!",
+                        icon: "success",
+                        button: "Aww yiss!",
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error adding item to the cart:', error);
+            });
+
+    };
+
     const backgroundImageStyle = {
         backgroundImage: `url(${photo})`,
         backgroundSize: '100% 100%',
@@ -35,7 +68,7 @@ const Loreal = () => {
                 <div className="hero-content text-center text-neutral-content">
                     <div className=" max-w-xl">
                         <h1 className="mb-5 lg:text-5xl text-white font-bold">{name}</h1>
-                        <Link to={"/myCart"}><button className="btn btn-outline btn-error">Add to cart</button></Link>
+                        <Link to={"/myCart"}><button onSubmit={handleAddToCart} className="btn btn-outline btn-error">Add to cart</button></Link>
 
                     </div>
                 </div>

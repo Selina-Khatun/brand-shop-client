@@ -22,7 +22,7 @@ const Products = () => {
     }
 
     const filteredProducts = products.filter(product => product.brand === brand);
-    console.log(filteredProducts);
+    // console.log(filteredProducts);
     return (
         <div>
             <h2>Products from <span className=' text-center text-4xl font-bold text-rose-600'><i>{filteredItem.brand}</i></span> </h2>

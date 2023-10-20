@@ -5,7 +5,7 @@ import Footer from '../../components/Footer/Footer';
 
 const AllProducts = () => {
     const products = useLoaderData();
-    console.log(products);
+    // console.log(products);
     return (
         <div>
            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>

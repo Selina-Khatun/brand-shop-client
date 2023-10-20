@@ -16,6 +16,7 @@ import Loreal from './components/Loreal/Loreal';
 import AuthProvider from './Providers/AuthProvider';
 import Products from './components/Products/Products';
 import AllProducts from './pages/Allproducts/AllProducts';
+import PrivateRoute from './PrivateRoute';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,15 +30,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/addProduct",
-        element: <AddProduct></AddProduct>
+        element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute> 
       },
       {
         path: "/myCart",
-        element: <MyCart></MyCart>
+        element: <PrivateRoute><MyCart></MyCart></PrivateRoute> 
       },
       {
         path: "/allProducts",
-        element: <AllProducts></AllProducts>,
+        element: <PrivateRoute><AllProducts></AllProducts></PrivateRoute>,
         loader: () => fetch('http://localhost:5000/product')
       },
       {
@@ -55,7 +56,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/loreal/:id",
-        element: <Loreal></Loreal>,
+        element:<PrivateRoute> <Loreal></Loreal></PrivateRoute>,
         loader: () => fetch('http://localhost:5000/product').then((response) => response.json())
       }
     ]

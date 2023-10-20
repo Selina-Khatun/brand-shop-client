@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase/firebase.config';
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
+import swal from 'sweetalert';
 const Register = () => {
     const [showPassword, setShowPassword] = useState();
     const handleRegister = e => {
@@ -16,26 +17,26 @@ const Register = () => {
         console.log(name, email, password,accepted);
 
         if (password.length < 6) {
-            alert('Password should be at least 6 characters or more.');
+            swal('Password should be at least 6 characters or more.');
             return;
         } else if (!/[A-Z]/.test(password)) {
-            alert('Password must contain at least one capital letter.');
+            swal('Password must contain at least one capital letter.');
             return;
         } else if (!/[@#$%^&+=]/.test(password)) {
-            window.alert('Password must contain at least one special character (@, #, $, %, ^, &, +, or =).');
+           swal('Password must contain at least one special character (@, #, $, %, ^, &, +, or =).');
             return;
         } else if (!accepted) {
-            alert('Please accept our term and conditions!!!!')
+            swal('Please accept our term and conditions!!!!')
         } else {
 
             createUserWithEmailAndPassword(auth, email, password)
                 .then(result => {
                     console.log(result.user);
-                    alert('Registration successful!');
+                    swal('Registration successful!');
                 })
                 .catch(error => {
                     console.error(error);
-                    alert('Email-already-in-use');
+                    swal('Email-already-in-use');
 
                 })
             form.reset('');

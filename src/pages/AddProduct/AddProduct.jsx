@@ -16,27 +16,27 @@ const AddProduct = () => {
         const description = form.description.value;
         const newProduct = { name, photo, brand, price, category, ratings, description };
         console.log(newProduct);
-fetch('http://localhost:5000/product',{
-    method:'POST',
-    headers:{
-        'content-type':'application/json'
-    },
-    body:JSON.stringify(newProduct)
-})
-.then(res=>res.json())
-.then(data=>{
-    console.log(data);
-    if(data.insertedId){
-        swal({
-            title: "Good job!",
-            text: "User added successfully!",
-            icon: "success",
-            button: "Aww yiss!",
-            
-          });
-          form.reset();
-    }
-})
+        fetch('http://localhost:5000/product', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    swal({
+                        title: "Good job!",
+                        text: "User added successfully!",
+                        icon: "success",
+                        button: "Aww yiss!",
+
+                    });
+                    form.reset();
+                }
+            })
 
     }
     return (
