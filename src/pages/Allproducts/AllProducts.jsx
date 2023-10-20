@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import Brands from '../../components/Brands/Brands';
 import Footer from '../../components/Footer/Footer';
 
+
 const AllProducts = () => {
     const products = useLoaderData();
     // console.log(products);
@@ -14,6 +15,7 @@ const AllProducts = () => {
                 }
             </div>
             <Footer></Footer>
+          
         </div>
     );
 };

@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/product')
+        loader: () => fetch(' https://brand-shop-server-78vwdpabs-selinakhatuns-projects.vercel.app/product')
       },
       {
         path: "/addProduct",
@@ -35,17 +35,18 @@ const router = createBrowserRouter([
       },
       {
         path: "/updateProduct/:id",
-        element: <UpdateProduct></UpdateProduct>,
-        loader: () => fetch('http://localhost:5000/product').then((response) => response.json())
+        element: <PrivateRoute> <UpdateProduct></UpdateProduct></PrivateRoute>,
+        loader: () => fetch(' https://brand-shop-server-78vwdpabs-selinakhatuns-projects.vercel.app/product').then((response) => response.json())
       },
       {
         path: "/myCart",
-        element: <PrivateRoute><MyCart></MyCart></PrivateRoute>
+        element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
+        loader: () => fetch('http://localhost:5000/carts').then((response) => response.json())
       },
       {
         path: "/allProducts",
         element: <PrivateRoute><AllProducts></AllProducts></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/product')
+        loader: () => fetch(' https://brand-shop-server-78vwdpabs-selinakhatuns-projects.vercel.app/product')
       },
       {
         path: "/register",
@@ -58,12 +59,12 @@ const router = createBrowserRouter([
       {
         path: "/products/:brand",
         element: <Products></Products>,
-        loader: () => fetch('http://localhost:5000/product')
+        loader: () => fetch(' https://brand-shop-server-78vwdpabs-selinakhatuns-projects.vercel.app/product')
       },
       {
         path: "/loreal/:id",
         element: <PrivateRoute> <Loreal></Loreal></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/product').then((response) => response.json())
+        loader: () => fetch(' https://brand-shop-server-78vwdpabs-selinakhatuns-projects.vercel.app/product').then((response) => response.json())
       }
     ]
   },
