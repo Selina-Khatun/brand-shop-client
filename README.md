@@ -18,7 +18,7 @@ Brand Shop is a client-side web application designed to provide users with a sea
 # Live Website
 
 
-Experience Brand Shop live by visiting [our Brand Shop - Beauty and Cosmetics]. Explore our vast selection of beauty and cosmetics products from the world's leading brands.
+Experience Brand Shop live by visiting [our Brand Shop - Beauty and Cosmetics] [https://brand-shop-client-e82f9.web.app]. Explore our vast selection of beauty and cosmetics products from the world's leading brands.
 
 
 
