@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import auth from '../../firebase/firebase.config';
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
 import swal from 'sweetalert';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init({ duration: 1000 });
 const Register = () => {
     const [showPassword, setShowPassword] = useState();
     const handleRegister = e => {
@@ -46,7 +49,7 @@ const Register = () => {
     return (
         <div>
 
-            <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.ibb.co/3Rc0CvW/woman-skin-SAA5-BN6-KZB.jpg)' }}>
+            <div data-aos="zoom-in-up" className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.ibb.co/3Rc0CvW/woman-skin-SAA5-BN6-KZB.jpg)' }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="max-w-3xl mx-auto">
                     <div

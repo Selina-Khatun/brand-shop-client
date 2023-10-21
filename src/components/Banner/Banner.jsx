@@ -7,7 +7,7 @@ const Banner = () => {
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-2xl">
-                    <h1 className="mb-5 text-5xl font-bold">Changing beauty for the better</h1>
+                    <h1 data-aos="zoom-in-up" className="mb-5 text-5xl font-bold">Changing beauty for the better</h1>
                     <p className="mb-5">We don’t just have a “clean” section of our store, every product we offer meets The Credo Clean Standard™</p>
                 
                 </div>

@@ -8,6 +8,9 @@ import AllBrands from '../../components/AllBrands/AllBrands';
 import Favorites from '../../components/Favorites/Favorites';
 import './HomePage.light.css';
 import './HomePage.dark.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init({ duration: 1000 });
 const Home = () => {
     const products = useLoaderData();
     const displayedProducts = products.slice(0, 4);
@@ -23,7 +26,7 @@ const Home = () => {
         <div style={containerStyle} className={`home-page ${isDarkMode ? 'dark' : 'light'}`}>
 
             <div className=' text-center items-center py-4'>
-                <button className='btn btn-outline btn-error items-center' onClick={toggleTheme}>
+                <button data-aos="zoom-in-up" className='btn btn-outline btn-error items-center' onClick={toggleTheme}>
                     Toggle Theme {isDarkMode ? 'Light' : 'Dark'}
                 </button>
             </div>

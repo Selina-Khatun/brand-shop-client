@@ -6,7 +6,9 @@ import auth from '../../firebase/firebase.config';
 import { AuthContext } from '../../Providers/AuthProvider';
 import swal from 'sweetalert';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init({ duration: 1000 });
 
 const LogIn = () => {
     const [user,setUser]=useState(null);
@@ -53,7 +55,7 @@ const LogIn = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen bg-slate-200 rounded-lg">
+            <div data-aos="zoom-in-up" className="hero min-h-screen bg-slate-200 rounded-lg">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center lg:text-left w-1/3">
                         <img className=' h-[60vh]' src="https://i.ibb.co/0ZF8dQg/undraw-Login-re-4vu2.png" alt="" />

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 import swal from 'sweetalert';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init({ duration: 1000 });
 const MyCart = () => {
     const carts = useLoaderData();
     const [allCarts, setAllCarts] = useState(carts);
@@ -45,7 +48,7 @@ const MyCart = () => {
                 allCarts?.map(cart => (
                     <div key={cart._id}>
 
-                        <div className=" bg-white border  rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        <div data-aos="fade-up" className=" bg-white border  rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
                             <img className=" rounded-t-lg  h-80" src={cart.photo} alt={cart.name} />
 
