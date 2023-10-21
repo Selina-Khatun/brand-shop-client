@@ -6,7 +6,7 @@ import './products.css';
 import Footer from '../Footer/Footer';
 const Products = () => {
     const [filteredItem, setFilteredItem] = useState({});
-    // const location = useLocation();
+  
     const products = useLoaderData();
     // console.log(products);
     const { brand } = useParams();
@@ -31,7 +31,7 @@ const Products = () => {
                     <Carousel autoPlay className='main-slider' >
                         {filteredProducts.map((product) => (
                             <div key={product._id} >
-                                <img fill="true" objectfit="cover" className='object-cover rounded-lg max-h-[75vh]' src={product.photo} alt={product.name} />
+                                <img fill="true"  className='object-cover rounded-lg max-h-[75vh]' src={product.photo} alt={product.name} />
                                 <p className="legend text-6xl">{product.name}</p>
                             </div>
                         ))}

@@ -13,8 +13,8 @@ const Register = () => {
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        const accepted =e.target.terms.checked;
-        console.log(name, email, password,accepted);
+        const accepted = e.target.terms.checked;
+        console.log(name, email, password, accepted);
 
         if (password.length < 6) {
             swal('Password should be at least 6 characters or more.');
@@ -23,7 +23,7 @@ const Register = () => {
             swal('Password must contain at least one capital letter.');
             return;
         } else if (!/[@#$%^&+=]/.test(password)) {
-           swal('Password must contain at least one special character (@, #, $, %, ^, &, +, or =).');
+            swal('Password must contain at least one special character (@, #, $, %, ^, &, +, or =).');
             return;
         } else if (!accepted) {
             swal('Please accept our term and conditions!!!!')
@@ -73,7 +73,7 @@ const Register = () => {
                             <div className="flex items-start">
                                 <div className="flex items-start">
                                     <div className="flex items-center gap-3 h-5">
-                                        <input id="remember" aria-describedby="remember" type="checkbox" name='terms' className="bg-gray-50 border border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"  />
+                                        <input id="remember" aria-describedby="remember" type="checkbox" name='terms' className="bg-gray-50 border border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" />
                                         <label htmlFor="remember" className="font-medium text-gray-900 dark:text-gray-300">  I agree the Terms and Conditions</label>
                                     </div>
 
@@ -95,11 +95,6 @@ const Register = () => {
 
                     </div>
                 </div>
-
-
-
-
-
             </div>
         </div>
     );

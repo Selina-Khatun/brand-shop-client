@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const Footer = () => {
     return (
         <div className='mt-14'>
-            <footer className="footer h-[40vh] items-center flex justify-around p-10 shadow-2xl bg-base-100 text-base-content">
+            <footer className="footer h-[50vh] items-center flex justify-around p-10 shadow-2xl bg-base-100 text-base-content">
 
                 <div className='flex flex-1 flex-col '>
                     <img className='w-[20%]' src="https://i.ibb.co/j8Q78Hf/undraw-Shopping-Bags-sbj5.png" alt="" />
@@ -16,6 +16,7 @@ const Footer = () => {
                     <li><NavLink className='mr-4 hover:text-rose-500' to={"/"}>Home</NavLink></li>
                     <li><NavLink className='mr-4 hover:text-rose-500' to={"/addProduct"}>Add Product</NavLink></li>
                     <li><NavLink className='mr-4 hover:text-rose-500' to={"/myCart"}>My Cart</NavLink></li>
+                    <li><NavLink className='mr-4 hover:text-rose-500' to={"/allProducts"}>ALL products</NavLink></li>
                     <li><NavLink className='mr-4 hover:text-rose-500' to={"/register"}>Register</NavLink></li>
                 </ul>
 

@@ -3,64 +3,63 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import swal from 'sweetalert';
 
 const UpdateProduct = () => {
-// const products=useLoaderData();
-// console.log(products);
-const [selectedItem, setSelectedItem] = useState({});
-const products = useLoaderData();
-console.log('Data:', products);
-const { id } = useParams();
-console.log('ID:', id);
+    // const products=useLoaderData();
+    // console.log(products);
+    const [selectedItem, setSelectedItem] = useState({});
+    const products = useLoaderData();
+    console.log('Data:', products);
+    const { id } = useParams();
+    console.log('ID:', id);
 
-useEffect(() => {
-    if (products && id) {
-        const foundItem = products.find(item => item._id === id);
-        console.log(foundItem);
-        setSelectedItem(foundItem);
+    useEffect(() => {
+        if (products && id) {
+            const foundItem = products.find(item => item._id === id);
+            console.log(foundItem);
+            setSelectedItem(foundItem);
+        }
+    }, [id, products]);
+
+    if (!selectedItem || Object.keys(selectedItem).length === 0) {
+        return <div><span className="loading loading-spinner loading-sm"></span></div>;
     }
-}, [id, products]);
+    const { _id, name, photo, brand, price, category, ratings, description } = selectedItem;
+    console.log(selectedItem);
 
-if (!selectedItem || Object.keys(selectedItem).length === 0) {
-    return <div><span className="loading loading-spinner loading-sm"></span></div>;
-}
-const {_id, name, photo, brand, price, category, ratings, description } = selectedItem;
-console.log(selectedItem);
-
-const handleUpdateProduct = event => {
-    event.preventDefault();
-    const form = event.target;
-    const name = form.name.value;
-    const photo = form.photo.value;
-    const brand = form.brand.value;
-    const price = form.price.value;
-    const category = form.category.value;
-    const ratings = form.ratings.value;
-    const description = form.description.value;
-    const updateProduct = { name, photo, brand, price, category, ratings, description };
-    console.log(updateProduct);
-    fetch(`http://localhost:5000/product/${_id}`, {
-        method: 'PUT',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(updateProduct)
-    })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if (data.modifiedCount>0) {
-                swal({
-                    title: "Good job!",
-                    text: "product updated successfully!",
-                    icon: "success",
-                    button: "Aww yiss!",
-
-                });
-                form.reset();
-            }
+    const handleUpdateProduct = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const brand = form.brand.value;
+        const price = form.price.value;
+        const category = form.category.value;
+        const ratings = form.ratings.value;
+        const description = form.description.value;
+        const updateProduct = { name, photo, brand, price, category, ratings, description };
+        console.log(updateProduct);
+        fetch(`https://brand-shop-server-o7wq85cow-selinakhatuns-projects.vercel.app/product/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateProduct)
         })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    swal({
+                        title: "Good job!",
+                        text: "product updated successfully!",
+                        icon: "success",
+                        button: "Aww yiss!",
 
-}
+                    });
+                    form.reset();
+                }
+            })
 
+    }
 
     return (
         <div>
@@ -87,7 +86,7 @@ const handleUpdateProduct = event => {
                             </div>
                             <div>
                                 <label htmlFor="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type</label>
-                                <select id="category" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" name='category'defaultValue={category} >
+                                <select id="category" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" name='category' defaultValue={category} >
                                     <option defaultValue="">Select category</option>
                                     <option value="Makeup">Makeup</option>
                                     <option value="Health">Health </option>
@@ -103,7 +102,7 @@ const handleUpdateProduct = event => {
                             </div>
                             <div className="sm:col-span-2">
                                 <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                                <textarea id="description" rows="8" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" name='description'defaultValue={description} placeholder="Your description here"></textarea>
+                                <textarea id="description" rows="8" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" name='description' defaultValue={description} placeholder="Your description here"></textarea>
                             </div>
                         </div>
 

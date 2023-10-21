@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 import Footer from '../Footer/Footer';
+import swal from 'sweetalert';
 
 const Loreal = () => {
     const [selectedItem, setSelectedItem] = useState({});
@@ -13,57 +14,46 @@ const Loreal = () => {
     useEffect(() => {
         if (products && id) {
             const foundItem = products.find(item => item._id === id);
-            console.log(foundItem);
+            // console.log(foundItem);
+            // delete foundItem['_id']
             setSelectedItem(foundItem);
 
         }
-        fetch('http://localhost:5000/cart', {
+
+    }, [id, products]);
+    const handleAddToCart = () => {
+
+
+        fetch('https://brand-shop-server-o7wq85cow-selinakhatuns-projects.vercel.app/cart', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
-
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify(selectedItem)
+            body: JSON.stringify(selectedItem),
         })
-            .then(res => res.json())
+        .then(res => res.json())
             .then(data => {
-                console.log(data);
-
-
+                // console.log('Server response:', data);
+                if (data.insertedId) {
+                    swal('You have successfully added the card')
+                } 
             })
-    }, [id, products]);
+
+            .catch(error => {
+                console.error('Error adding item to the cart:', error);
+            });
+    };
+
+   
 
     if (!selectedItem || Object.keys(selectedItem).length === 0) {
         return <div><span className="loading loading-spinner loading-sm"></span></div>;
     }
     const { name, photo, brand, price, category, ratings, description } = selectedItem;
-    console.log(selectedItem);
-    const cart = {name, photo, brand, price, category, ratings, description };
-    console.log(cart);
+    // console.log(selectedItem);
+    const cart = { name, photo, brand, price, category, ratings, description };
+    // console.log(cart);
 
-    //   const handleAddToCart = (data) => {
-    // console.log(data)
-
-    //             }
-    const handleAddToCart = () => {
-        console.log('Adding item to cart:', cart);
-
-        fetch('http://localhost:5000/cart', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(cart),
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log('Server response:', data);
-                // Handle the response from the server as needed
-            })
-            .catch(error => {
-                console.error('Error adding item to the cart:', error);
-            });
-    };
     const backgroundImageStyle = {
         backgroundImage: `url(${photo})`,
         backgroundSize: '100% 100%',
@@ -79,7 +69,7 @@ const Loreal = () => {
                         <h1 className="mb-5 lg:text-5xl text-white font-bold">{name}</h1>
                         <form >
 
-                            <Link to={'/myCart'}><button className='btn btn-outline btn-error' onClick={handleAddToCart} type="button"  >Add to cart</button></Link>
+                            <button className='btn btn-outline btn-error' onClick={handleAddToCart} type="button"  >Add to cart</button>
                         </form>
                     </div>
                 </div>

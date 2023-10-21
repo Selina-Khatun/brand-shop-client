@@ -4,12 +4,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-    console.log(user);
-    // const handleLogout = () => {
-    //     logOut().then();
-    // }
-
-
+    // console.log(user);
     const handleLogout = () => {
         console.log("Logging out...");
         logOut()
@@ -27,8 +22,6 @@ const Navbar = () => {
         <li><NavLink className='mr-4 font-bold' to={"/allProducts"}>All products</NavLink></li>
         <li><NavLink className='mr-4 font-bold' to={"/register"}>Register</NavLink></li>
 
-
-
     </>
 
     return (
@@ -41,26 +34,6 @@ const Navbar = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             {navLink}
-
-                            {/* {user ? (
-                            <div className=' flex justify-center items-center gap-3'>
-                              <div className='flex flex-col'>
-                              <p className=' text-rose-600 lg:font-bold font-extralight'>{user?.displayName} </p>
-                               <p className=' text-rose-600 lg:font-bold text-xs'>{user?.email} </p>
-                              </div>
-                                <label tabIndex={0} className="btn btn-ghost btn-circle border-rose-300 avatar">
-                                    <div className="lg:w-10 w-3 rounded-full">
-                                        <img src={user?.photoURL} />
-                                    </div>
-                                </label>
-                                <button onClick={handleLogout} className='btn btn-outline btn-error lg:text-white text-black '> log out</button>
-                                
-                            </div>
-                        ) : (
-                            <button className='btn btn-outline btn-error lg:text-white text-black'><NavLink to={'/login'}>Login</NavLink></button>
-
-                        )} */}
-
                         </ul>
                     </div>
                     <div className='flex justify-center items-center'>
@@ -71,30 +44,27 @@ const Navbar = () => {
                 <div className="navbar-center hidden  lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {navLink}
-
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    {/* <NavLink className='mr-4 font-bold' to={"/login"}><button className=' btn btn-outline'>Login</button></NavLink> */}
-
                     {user ? (
-                            <div className=' flex justify-center items-center gap-3'>
-                              <div className='flex flex-col flex-wrap'>
-                              <p className=' text-rose-600 lg:font-bold'>{user?.displayName} </p>
-                               <p className=' text-rose-600 lg:font-bold text-xs'>{user?.email} </p>
-                              </div>
-                                <label tabIndex={0} className="btn btn-ghost btn-circle border-rose-300 avatar">
-                                    <div className="w-10 rounded-full">
-                                        <img src={user?.photoURL} />
-                                    </div>
-                                </label>
-                                <button onClick={handleLogout} className='btn btn-outline btn-error lg:text-white text-black'> log out</button>
-                                
+                        <div className=' flex justify-center flex-wrap-reverse lg:mt-0 mt-10 items-center gap-3'>
+                            <div className='flex flex-col flex-wrap'>
+                                <p className=' text-rose-600 lg:font-bold'>{user?.displayName} </p>
+                                <p className=' text-rose-600 lg:font-bold text-xs'>{user?.email} </p>
                             </div>
-                        ) : (
-                            <button className='btn btn-outline btn-error lg:text-white text-black'><NavLink to={'/login'}>Login</NavLink></button>
+                            <label tabIndex={0} className="btn btn-ghost btn-circle border-rose-300 avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={user?.photoURL} />
+                                </div>
+                            </label>
+                            <button onClick={handleLogout} className='btn btn-outline btn-error lg:text-white text-black'> log out</button>
 
-                        )}
+                        </div>
+                    ) : (
+                        <button className='btn btn-outline btn-error lg:text-white text-black'><NavLink to={'/login'}>Login</NavLink></button>
+
+                    )}
                 </div>
             </div>
         </div>

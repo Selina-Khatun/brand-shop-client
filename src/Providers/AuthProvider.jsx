@@ -10,38 +10,25 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
     const [loading, setLoading] = useState(true);
-    // useEffect(() => {
-    //     const userData = async () => {
-    //         const response = await fetch('http://localhost:5000/product');
-    //         if (response.ok) {
-    //             const userData = await response.json();
-    //             setUser(userData);
-    //         } else {
-    //             setUser(null);
-    //             console.log('can not fatch')
-    //         }
-    //         setLoading(false)
-    //     }
-    //     userData();
-    // }, []);
+
 
     const googleSignIn = (value) => {
         setLoading(true);
         return signInWithPopup(auth, googleProvider);
     }
 
-    const signIn=(email,password)=>{
+    const signIn = (email, password) => {
         setLoading(true);
-        return signInWithEmailAndPassword(auth,email,password)
+        return signInWithEmailAndPassword(auth, email, password)
     }
-   
-    useEffect(()=>{
-        const unsubscribe=onAuthStateChanged(auth,(currentUser)=>{
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log('state changed');
             setUser(currentUser);
             setLoading(false);
         });
-        return()=>{
+        return () => {
             return unsubscribe();
         };
     })

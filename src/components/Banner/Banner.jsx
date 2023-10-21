@@ -9,7 +9,7 @@ const Banner = () => {
                 <div className="max-w-2xl">
                     <h1 className="mb-5 text-5xl font-bold">Changing beauty for the better</h1>
                     <p className="mb-5">We don’t just have a “clean” section of our store, every product we offer meets The Credo Clean Standard™</p>
-                    {/* <button className="btn-outline">Get Started</button> */}
+                
                 </div>
             </div>
         </div>
